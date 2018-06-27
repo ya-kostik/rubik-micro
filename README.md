@@ -1,4 +1,4 @@
-# rubik-http
+# rubik-micro
 Micro server kubik for the Rubik
 
 ## Install
@@ -57,7 +57,7 @@ module.exports = {
 ```
 
 ## Extensions
-When you add an instance of HTTP to app, you can use standart extensions interface,
+When you add an instance of Micro to app, you can use standart extensions interface,
 with other extensions
 ```javascript
 app.use({
@@ -82,8 +82,9 @@ http.use([
 ]);
 ```
 
-HTTP's instance has the following extensions
+Micro's instance has the following extensions
 1. function — just add as middleware
+
 ```javascript
 app.use({
   http: function(req, res, next) {
@@ -99,6 +100,7 @@ http.use(async function(req, res) {
 });
 ```
 2. Array of functions — add more then one middlewares
+
 ```javascript
 app.use({
   http: [
@@ -113,6 +115,7 @@ http.use([
 ]);
 ```
 3. Add custom catcher or listener
+
 ```javascript
 app.use({
   http: {
@@ -129,15 +132,15 @@ http.use({
   }
 });
 ```
-
 4. before and after hooks
+
 ```javascript
 app.use({
   http: {
-    before(http) {
+    before(micro) {
       // before apply any middleware
     },
-    after(http) {
+    after(micro) {
       // after apply all middlewares, but before create server and listen
     }
   }
