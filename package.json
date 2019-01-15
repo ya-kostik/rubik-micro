@@ -22,15 +22,13 @@
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "jest": "^23.1.0",
-    "rubik-main": "^1.5.1",
-    "micro": "^9.3.2"
+    "rubik-main": "^2.0.1",
+    "micro": "^9.3.3"
   },
   "perDependencies": {
-    "rubik-main": "^1.5.1",
-    "micro": "^9.3.2"
+    "rubik-main": "^2.0.1",
+    "micro": "^9.3.3"
   },
   "dependencies": {
-    "lodash": "^4.17.10",
-    "micro": "^9.3.2"
   }
 }

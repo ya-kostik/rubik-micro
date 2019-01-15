@@ -1,7 +1,9 @@
 const micro = require('micro');
 const { Kubik } = require('rubik-main');
-const isFunction = require('lodash/isFunction');
-const isString = require('lodash/isString');
+
+// Checkers
+const isFunction = fn => typeof fn === 'function';
+const isString = str => typeof str === 'string';
 
 /**
  * Micro kubik for Rubik

@@ -5,11 +5,13 @@ Micro server kubik for the Rubik
 
 ### npm
 ```bash
+npm i micro
 npm i rubik-micro
 ```
 
 ### yarn
 ```bash
+yarn add micro
 yarn add rubik-micro
 ```
 
