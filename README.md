@@ -106,14 +106,14 @@ http.use(async function(req, res) {
 ```javascript
 app.use({
   http: [
-    require('./parseBody.js')
+    require('./parseBody.js'),
     require('./whitelist.js')
   ]
 });
 
 http.use([
   require('./cacheControl.js'),
-  require('./ruleControl.js'),
+  require('./ruleControl.js')
 ]);
 ```
 3. Add custom catcher or listener
@@ -147,4 +147,60 @@ app.use({
     }
   }
 })
+```
+
+5. middlewares and other extensions with one object
+
+```javascript
+app.use({
+  http: {
+    middlewares: [
+      require('./parseBody.js'),
+      require('./whitelist.js')
+    ],
+    listener: (req, res) => {
+      res.end('200 is Ok');
+    },
+    catcher: (req, res, err) => {
+      console.error(err);
+      res.end('Internal server Error');
+    },
+    before(micro) {
+      // before apply any middleware
+    },
+    after(micro) {
+      // after apply all middlewares, but before create server and listen
+    }
+  }
+});
+```
+
+6. Array composition of extensions
+
+```javascript
+app.use({
+  http: [
+    require('./parseBody.js'),
+    require('./whitelist.js'),
+    require('./cacheControl.js'),
+    require('./ruleControl.js'),
+    {
+      listener: (req, res) => res.end('200 is Ok')
+    },
+    {
+      catcher: (req, res, err) => {
+        console.error(err);
+        res.end('Internal server Error');
+      }
+    },
+    {
+      before(micro) {
+        // before apply any middleware
+      },
+      after(micro) {
+        // after apply all middlewares, but before create server and listen
+      }
+    }
+  ]
+});
 ```

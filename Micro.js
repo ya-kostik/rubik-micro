@@ -62,6 +62,9 @@ class Micro extends Kubik {
     if (extension.catcher) {
       this.catch(extension.catcher);
     }
+    if (Array.isArray(extension.middlewares)) {
+      this.middlewares = this.middlewares.concat(extension.middlewares);
+    }
   }
 
   /**

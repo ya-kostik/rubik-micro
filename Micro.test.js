@@ -1,4 +1,4 @@
-/*global test expect */
+/*global test expect jest */
 const { createKubik, createApp } = require('rubik-main/tests/helpers/creators');
 const { Kubiks } = require('rubik-main');
 const http = require('http');
@@ -27,10 +27,19 @@ test('create and up Socket instance', async () => {
 test('add and process middlewares', async (cb) => {
   const app = init(startPort + 1);
   const micro = createKubik(Micro, app);
+  
+  let counter = 0;
+  const middleware = jest.fn(() => counter += 1);
+
   micro.use(async (req, res) => {
     res.end('Hi');
   });
+  micro.use({
+    middlewares: [middleware, middleware, middleware]
+  });
   micro.use(async () => {
+    expect(middleware.mock.calls.length).toBe(counter);
+    expect(middleware.mock.results[counter - 1].value).toBe(counter);
     await micro.stop();
     setTimeout(() => cb(), 4);
     return false;
