@@ -28,12 +28,10 @@ const config = new Kubiks.Config(path.join(__dirname, './config/'));
 // you can use any logger you want, just create kubik with it
 // default Kubiks.Log use console for logging
 const log = new Kubiks.Log();
-// first param is a directory with routes or middlewares
-// route: module.exports = { name: '/files', router: express.Router() };
-// middleware: module.exports = function(req, res, next) { next() };
-const http = new Micro();
+
+const micro = new Micro();
 // use is extension method for Kubik instances
-micro.use(async function(req, res) {
+micro.use(async function(req, res/*,  micro */) {
   res.end('Ok, it is done');
 });
 // You can use any middlewares you want. If you want to stop process middlewares, just `return false` from middleware.

@@ -67,6 +67,13 @@ class Micro extends Kubik {
     }
   }
 
+  async processMiddlewares(req, res) {
+    for (const middleware of this.middlewares) {
+      const result = await middleware(req, res, this);
+      if (!(result || result === undefined)) return;
+    }
+  }
+
   /**
    * default Listener
    * @param  {http.Request}  req
@@ -74,12 +81,9 @@ class Micro extends Kubik {
    */
   async defaultListener(req, res) {
     try {
-      for (const middleware of this.middlewares) {
-        const result = await middleware(req, res);
-        if (!(result || result === undefined)) return;
-      }
+      await this.processMiddlewares(req, res);
     } catch (err) {
-      this.catcher(req, res, err);
+      this.catcher(req, res, err, this);
     }
   }
 

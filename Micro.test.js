@@ -27,7 +27,7 @@ test('create and up Socket instance', async () => {
 test('add and process middlewares', async (cb) => {
   const app = init(startPort + 1);
   const micro = createKubik(Micro, app);
-  
+
   let counter = 0;
   const middleware = jest.fn(() => counter += 1);
 
