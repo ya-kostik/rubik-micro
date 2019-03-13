@@ -87,9 +87,9 @@ Micro's instance has the following extensions
 
 ```javascript
 app.use({
-  http: function(req, res, next) {
+  http: function(req, res, micro) {
     console.info('Request starts at', new Date());
-    next();
+    return true;
   }
 });
 

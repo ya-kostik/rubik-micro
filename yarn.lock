@@ -3430,10 +3430,10 @@ rsvp@^3.3.3:
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
   integrity sha512-OfWGQTb9vnwRjwtA2QwpG2ICclHC3pgXZO5xt8H2EfgDquO0qVdSb5T88L4qJVAEugbS56pAuV4XZM58UX8ulw==
 
-rubik-main@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/rubik-main/-/rubik-main-2.0.1.tgz#c5ef02e5405981a87262f116d40e4d32f92dc37f"
-  integrity sha512-2hgNOt5ac/MZh8zoyj2L4FioaQkSbYKg4QvD799xKQo0OzwkVnzc4lFTXqp8dvXUyI0AC+HmSeBMslAfkm3LoA==
+rubik-main@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/rubik-main/-/rubik-main-2.1.0.tgz#c990b99a8fc4adf8cf2e897da556f889221941d4"
+  integrity sha512-ZYLDNATdE3DD4wuScKTNt+Q05lmtAHrLs0vJPikicnV+k/DxOm0+Wcbxi44e8bqE3SpPIqv4HBzL5F8Nina4dQ==
   dependencies:
     hooks-mixin "^1.2.0"
     lodash "^4.17.4"

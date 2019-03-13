@@ -151,6 +151,15 @@ class Micro extends Kubik {
   }
 
   /**
+   * down micro
+   * @return {Promise}
+   */
+  async down() {
+    await this.stop();
+    this.server = null;
+  }
+
+  /**
    * after all kubiks up hook
    */
   async after() {
