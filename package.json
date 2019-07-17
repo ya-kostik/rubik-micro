@@ -19,15 +19,15 @@
     "micro"
   ],
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
-    "eslint": "^4.19.1",
-    "jest": "^23.1.0",
-    "micro": "^9.3.3",
-    "rubik-main": "^2.1.0"
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "jest": "^24.8.0",
+    "micro": "^9.3.4",
+    "rubik-main": "^2.1.2"
   },
-  "perDependencies": {
-    "rubik-main": "^2.1.0",
-    "micro": "^9.3.3"
+  "peerDependencies": {
+    "micro": "^9.3.4",
+    "rubik-main": "^2.1.2"
   },
   "dependencies": {}
 }
