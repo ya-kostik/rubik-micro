@@ -24,7 +24,7 @@ test('create and up Socket instance', async () => {
   await micro.stop();
 });
 
-test('add and process middlewares', async (cb) => {
+test('add and process middlewares', (cb) => {
   const app = init(startPort + 1);
   const micro = createKubik(Micro, app);
 
@@ -49,11 +49,11 @@ test('add and process middlewares', async (cb) => {
   }, () => {
     cb(new Error('Middleware is not skipped 2'));
   }]);
-  await app.up();
-  http.get('http://localhost:' + (startPort + 1));
+  app.up().
+    then(() => http.get('http://localhost:' + (startPort + 1)));
 });
 
-test('add catcher and catch', async (cb) => {
+test('add catcher and catch', (cb) => {
   const app = init(startPort + 2);
   const micro = createKubik(Micro, app);
   const testErr = new Error('I am so testy');
@@ -69,11 +69,11 @@ test('add catcher and catch', async (cb) => {
   micro.use(() => {
     throw testErr;
   });
-  await app.up();
-  http.get('http://localhost:' + (startPort + 2));
+  app.up().
+    then(() => http.get('http://localhost:' + (startPort + 2)));
 });
 
-test('add listener and listen', async (cb) => {
+test('add listener and listen', (cb) => {
   const app = init(startPort + 3);
   const micro = createKubik(Micro, app);
   micro.use({
@@ -84,6 +84,6 @@ test('add listener and listen', async (cb) => {
       cb();
     }
   });
-  await app.up();
-  http.get('http://localhost:' + (startPort + 3));
+  app.up().
+    then(() => http.get('http://localhost:' + (startPort + 3)));
 });

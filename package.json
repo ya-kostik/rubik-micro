@@ -1,6 +1,6 @@
 {
   "name": "rubik-micro",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Micro server kubik for the Rubik",
   "main": "Micro.js",
   "repository": "https://github.com/ya-kostik/rubik-http",
@@ -19,15 +19,14 @@
     "micro"
   ],
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "jest": "^25.2.7",
+    "eslint": "^7.27.0",
+    "jest": "^27.0.3",
     "micro": "^9.3.4",
-    "rubik-main": "^2.2.1"
+    "rubik-main": "^2.2.2"
   },
   "peerDependencies": {
     "micro": "^9.3.4",
-    "rubik-main": "^2.1.2"
+    "rubik-main": "^2.2.2"
   },
   "dependencies": {}
 }
