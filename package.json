@@ -7,10 +7,16 @@
   "author": "Constantin Tsukanov <c@indotech.ru>",
   "license": "Apache-2.0",
   "private": false,
+  "files": [
+    "index.js",
+    "Micro.js"
+  ],
   "scripts": {
     "test": "jest --verbose",
     "watch": "jest --watch",
-    "lint": "./node_modules/eslint/bin/eslint.js ./"
+    "lint": "./node_modules/eslint/bin/eslint.js ./",
+    "tarball": "tarball=\"$(npm pack .)\"; wc -c \"${tarball}\"; tar tvf \"${tarball}\"; rm \"${tarball}\";",
+    "prepublishOnly": "yarn test && yarn lint && yarn tarball"
   },
   "tags": [
     "http",
@@ -19,10 +25,10 @@
     "micro"
   ],
   "devDependencies": {
-    "eslint": "^7.27.0",
-    "jest": "^27.0.3",
+    "eslint": "^8.1.0",
+    "jest": "^27.3.1",
     "micro": "^9.3.4",
-    "rubik-main": "^2.2.2"
+    "rubik-main": "^2.3.1"
   },
   "peerDependencies": {
     "micro": "^9.3.4",
